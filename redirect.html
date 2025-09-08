@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      flex-direction: column;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .fade {
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .bigD {
+      font-size: 8rem;
+      animation: fadeIn 2s forwards;
+    }
+
+    .prezentuje {
+      animation: fadeIn 2s forwards;
+      animation-delay: 2s;
+    }
+
+    .project {
+      font-size: 3rem;
+      color: #00ffff;
+      animation: fadeIn 2s forwards;
+      animation-delay: 5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bigD fade">D</div>
+  <div class="prezentuje fade">dawcio232 prezentuje...</div>
+  <div class="project fade">Project Starfish</div>
+
+  <script>
+    // Czas trwania całej animacji = 7s
+    setTimeout(() => {
+      window.location.href = "https://dawcio232.github.io/starfish/"; // <- zmień na docelowy link
+    }, 7000);
+  </script>
+</body>
+</html>
