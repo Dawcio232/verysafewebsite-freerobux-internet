@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Starfish</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff8000, #ffffff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .content {
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #333;
+    }
+    p {
+      font-size: 1.2em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>🌊 Project Starfish</h1>
+    <p>Witamy na stronie!</p>
+  </div>
+
+  <script>
+    fetch("config.json?cacheBust=" + Date.now())
+      .then(r => r.json())
+      .then(cfg => {
+        if (!cfg.online) {
+          document.body.innerHTML = `
+            <div style="text-align:center; padding:50px; font-family:sans-serif;">
+              <h1>🚫 Strona jest aktualnie zamknięta</h1>
+              <p>Spróbuj ponownie później.</p>
+            </div>
+          `;
+        }
+      })
+      .catch(err => {
+        console.error("Błąd ładowania config.json:", err);
+      });
+  </script>
+</body>
+</html>
